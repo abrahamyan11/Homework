@@ -31,6 +31,7 @@ def bigger_sum_of_squares (a, b, c):
         return bigger_sum_of_squares(a, c)
     else:
         return bigger_sum_of_squares(a, b)
+    print (bigger_sum_of_squares (2, 5, 7))
 
 1.4  Նկարագրեք հետևյալ ֆունկցիայի աշխատանքը:
 def a_plus_abs_b (a, b):
@@ -56,30 +57,31 @@ def a_plus_abs_b(a, b):
 
 1.5 Ստեղծել ֆունկցիա, որը ստանում է երկու թվային արգումենտ` a և b, և վերադարձնում է a-ից մինչև b ընկած ամբողջ թվերի գումարը։ Կարող եք ենթադրել, որ առաջին արգումենտը միշտ փոքր է երկրորդից։
 
-def sum_of_a_b(a,b):
+def sum_of_a_b (a, b):
     start = 0
-    while a<=b:
+    while a <= b:
         start = start + a
-        a = a+1
+        a = a + 1
     return start
-    print(sum_of_a_b(2, 5))
+    print (sum_of_a_b (2, 5))
+
 1.6 Իրականացնել նախորդ վարժությունում տրված ֆունկցիան՝ հաշվի առնելով, որ առաջին արգումենտը կարող է մեծ լինել երկրորդից։ Այդ դեպքում ֆունկցիան պետք է վերադարձնի b-ից մինչև a ամբողջ թվերի գումարը։
 
-def sum_of_a_b(a,b):
+def sum_of_a_b (a, b):
     start = 0
-    if b>=a:
-        while a<=b:
+    if b >= a:
+        while a <= b:
             start = start + a
             a = a + 1
         return start
     else:
-        while b<=a:
+        while b <= a:
             start = start + b
             b = b + 1
         return start
-print(sum_of_a_b(5, 2))
+print (sum_of_a_b (5, 2))
 
-1.7 Իրականացնել pow (a, b) ֆունկցիան՝ հաշվի առնելով, որ b-ն կարող է լինել նաև ոչ դրական։ Հիշեցնենք
+1.7 Իրականացնել pow (a, b) ֆունկցիան՝ հաշվի առնելով, որ b-ն կարող է լինել նաև ոչ դրական։ Հիշեցնենք`
 
 a ** b = a ** b, եթե a > 0
 a ** b = (1 / a ** (-b)), եթե b < 0
@@ -87,33 +89,34 @@ a ** b = 1, եթե b = 0
 
 Նաև հաշվի առեք, որ a-ի b աստիճանը սխալ արտահայտություն է, եթե a-ն հավասար է 0, իսկ b-ն բացասական է:
 
-def pow_a_b(a,b):
-    if b<0 and a==0:
+def pow_a_b (a,b):
+    if b < 0 and a == 0:
         return None
     res = 1
     count = 0
-    if b>0:
-        while count<b:
-            res = res*a
-            count+=1
+    if b > 0:
+        while count < b:
+            res = res * a
+            count = count + 1
         return res
-    elif b<0:
-        while count<abs(b):
-            res = res*a
-            count+=1
+    elif b < 0:
+        while count < abs (b):
+            res = res * a
+            count = count + 1
         return (1/res)
     else:
         return 1
-print(pow_a_b(3,-3))
+print (pow_a_b (2, -2))
 
 1.8 Նյուտոնի մեթոդը խորանարդ արմատ հաշվելու համար հիմնված է հետևյալ քայլերի վրա. եթե n-ը m թվի մոտարկված արմատն է, ապա մենք կարող ենք էլ ավելի բարելավել մոտարկումը հետևայլ քայլով`
 ((m / (n ** 2)) + (2 * n)) / 3
 Այս բանաձևով ստեղծեք ֆունկցիա, որը հաշվում է թվի խորանարդ արմատը։
-def cube_root(m, n):
- return ((m / (n ** 2)) + (2 * n)) / 3
-print (cube_root(8, 2))
 
-1.9 Ունենք inc և dec ֆունկցիաները։ inc-ը վերադարձնում է արգումենտին գումարած 1 արժեքը, իսկ dec-ը արգումենտից հանած 1 արժեքը՝
+def cube_root (m, n):
+ return ((m / (n ** 2)) + (2 * n)) / 3
+print (cube_root (8, 2))
+
+1.9 Ունենք inc և dec ֆունկցիաները։ inc-ը վերադարձնում է արգումենտին գումարած 1 արժեքը, իսկ dec-ը` արգումենտից հանած 1 արժեքը:
 
 >>> def inc(a):
 	return a + 1
@@ -135,7 +138,8 @@ print (cube_root(8, 2))
 		return add2(dec(a), inc(b))
 
 Օրինակի համար դիտարկեք add1 (4, 5) և add2 (4, 5) կանչերը:
-add2 ֆունկցիան պոչավոր ռեկուրսիվ է, քանի որ գործողությունների շղթա չի առաջանում, իսկ add1 ֆունկցիան ռեկուրսիվ է,քանի որ առաջանում գործողությունների շղթա։
+
+add1 ֆունկցիան ռեկուրսիվ է, քանի որ առաջանում գործողությունների շղթա, իսկ add2 ֆունկցիան պոչավոր ռեկուրսիվ է, քանի որ գործողությունների շղթա չի առաջանում: 
 
 1.10 Հաջորդ ֆունկցիան հաշվարկում է մաթեմատիկական ֆունկցիա, որը հայտնի է Ակերմանի ֆունկցիա անվամբ:
 
@@ -157,44 +161,34 @@ ackermann(2, 4)
 
 ackermann(3, 3)
 
-
-Կարճ նկարագրեք, թե ինչ են հաշվում a1, a2, և a3 ֆունկցիաները:
-
->>> def a1(n):
-	return ackermann(0, n)
->>> def a2(n):
-	return ackermann(1, n)
->>> def a3(n):
-	return ackermann(2, n)
-
-ackermann(1, 5) Կլինի 32 
-ackermann(2, 4) Կլինի 65536 
-ackermann(3, 3) Կլինի 65536
+ackermann(1, 5) = 32 
+ackermann(2, 4) = 65536 
+ackermann(3, 3) = 65536
 
 1.11 f ֆունկցիան սահմանվում է հետևայլ կերպ.
 f(n) = n, եթե n < 3
 f(n) = f(n - 1) + f(n - 2) + f(n - 3), եթե n >= 3
 n-ը կարող է լինել միայն 0 և դրական ամբողջ թիվ։ Իրականացրեք լուծումը ռեկուրսիվ, իտերատիվ և պոչավոր ռեկուրսիվ տարբերակներով։
 
-def f(n):
-    if n>=0:
-        if n<3:
+def f (n):
+    if n >= 0:
+        if n < 3:
             return n 
         else:
-            return f(n-1)+f(n-2)+f(n-3)
+            return f (n-1) + f (n-2) + f (n-3)
     return None
-print(f(5))
+print (f (6))
 
 1.12 Ստորև պատկերված աղյուսակը կոչվում է Պասկալի եռանկյունի (Pascal’s triangle):
  
 Եռանկյան կողմերում գտնվող բոլոր թվերը հավասար են 1-ի, իսկ եռանկյան ներսում գտնվող թվերից յուրաքանչյուրը հավասար է նրա վերևի երկու թվերի գումարին։ Գրեք ռեկուրսիվ ֆունկցիա, որը հաշվում է Պասկալի եռանկյունու անդամի արժեքը։
 
-def paskal(n,m):
-    if n>=0 and m!=0 and m-n<=1:  
-        if n==0 or m==1:
+def pascal (n,m):
+    if n >= 0 and m != 0 and m - n <= 1:  
+        if n == 0 or m == 1:
             return 1
-        elif m==n+1:
+        elif m == n + 1:
             return 1
         else :
-            return paskal(n-1,m-1)+paskal(n-1,m)
-    print(paskal(2,3))
+            return pascal (n-1,m-1) + pascal (n-1,m)
+    print (paskal (2, 5))
